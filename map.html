@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Explore the Map | Computing Behind Bars</title>
+  <meta name="description" content="A public, sourced map of documented computing education programs in U.S. prisons.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+</head>
+<body>
+<main>
+  <h1>Explore the map</h1>
+  <p class="lede">Each marker is a correctional facility with at least one documented computing program.
+  Select a marker for details and sources, or filter by program characteristics.</p>
+
+  <form id="filters" class="filters" onsubmit="return false" aria-label="Filter programs">
+    <fieldset>
+      <legend>Search</legend>
+      <input id="f-search" type="search" placeholder="Facility, partner, course…" aria-label="Search programs">
+      <legend style="margin-top:0.6rem">State</legend>
+      <select id="f-state" aria-label="State"></select>
+    </fieldset>
+    <fieldset><legend>Program type</legend><div id="f-type"></div></fieldset>
+    <fieldset><legend>Credential field</legend><div id="f-field"></div></fieldset>
+    <fieldset><legend>Partner type</legend><div id="f-partner"></div></fieldset>
+    <fieldset><legend>Status</legend><div id="f-status"></div></fieldset>
+    <div class="actions"><button type="button" id="reset-filters">Reset filters</button></div>
+  </form>
+
+  <div id="map" role="region" aria-label="Map of programs"></div>
+  <p id="map-status" aria-live="polite">Loading programs…</p>
+
+  <h2>Programs in this view</h2>
+  <p class="muted">The same programs as the map, as a table. Select a facility name to locate it on the map.</p>
+  <div class="table-wrap">
+    <table id="program-table">
+      <thead><tr><th>Facility</th><th>State</th><th>Partner</th><th>Computing offering</th><th>Program type</th><th>Source</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <h2>What the categories mean</h2>
+  <dl>
+    <dt><strong>Degree pathway</strong></dt><dd>Computing coursework that counts toward a degree. "Credential field" says whether the degree itself is in computing; a computing course inside a liberal arts degree is not a computer science degree.</dd>
+    <dt><strong>Certificate</strong></dt><dd>A structured, multi-course certificate program in a computing area.</dd>
+    <dt><strong>Standalone course</strong></dt><dd>One or more individual computing courses that are not part of a stated credential.</dd>
+    <dt><strong>Other computing education</strong></dt><dd>Digital literacy, IT training, or related instruction.</dd>
+  </dl>
+  <p class="muted">A missing marker does not mean no program exists, only that we have not documented one. See <a href="sources.html">methodology</a>.</p>
+</main>
+  <script src="js/site.js"></script>
+  <script src="vendor/leaflet/leaflet.js"></script>
+  <script src="js/csv.js"></script>
+  <script src="js/map.js"></script>
+</body>
+</html>
