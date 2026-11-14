@@ -1,6 +1,6 @@
 # Computing Behind Bars
 
-**Live site:** [TODO: https://USERNAME.github.io/REPO/]
+**Live site:** https://vvvnikvvv.github.io/computing-behind-bars
 
 Computing Behind Bars is a public, interactive map of documented computing education programs in U.S. prisons: courses, certificates, and degree pathways, each linked to its sources. Users can filter programs by program type, whether the credential is in a computing field, partner type, state, and verification status. The site also has pages on history, context and research, and our methodology and sources.
 
@@ -8,7 +8,7 @@ It complements the Alliance for Higher Education in Prison's National Directory 
 
 ## Course staff contact
 
-[TODO: Name], [TODO: email]. This person will reply within 24 hours through Friday of finals week.
+Nik Virrey, nvirrey@ucsd.edu. This person will reply within 24 hours through Friday of finals week.
 
 ## Viewing the site
 
@@ -72,11 +72,15 @@ The full resource list is on the live site at **Sources & Methodology** and in [
 
 ## AI disclosure
 
-AI tools (Claude, by Anthropic; [TODO: others]) were used to help write code and edit text for this project. All program data and sources were found and verified by the team. Copies of our AI conversations are in [TODO: location, e.g. `docs/ai-conversations/`].
+AI tools (Claude, by Anthropic) were used to help write code and edit text for this project. All program data and sources were found and verified by the team. Copies of our AI conversations are in [TODO: location, e.g. `docs/ai-conversations/`].
 
 ## Team
 
-[TODO: names and roles]
+Barry
+Henry
+Pasha
+Nik
+Zachary
 
 ## Before final submission
 
