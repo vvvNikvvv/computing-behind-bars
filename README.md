@@ -14,7 +14,7 @@ It complements the Alliance for Higher Education in Prison's National Directory 
 
 **Option 1 (easiest):** open the live site link above.
 
-**Option 2 (run it locally):** you need Python 3 (`python3 --version` to check) and an internet connection for the map tiles.
+**Option 2 (run it locally):** you need Python 3 (`python3 --version` to check).
 
 ```bash
 git clone [TODO: repo URL]
@@ -39,6 +39,7 @@ programs.html       Featured program profiles
 sources.html        Methodology, limitations, resource list (from data/sources.csv)
 data/programs.csv   Program dataset (one row per program)
 data/sources.csv    Resource list
+data/us-states.geojson  U.S. state outlines for the base map (U.S. Census Bureau via us-atlas, ISC license)
 docs/data-dictionary.md   Column definitions and allowed values
 js/site.js          Shared header and footer (maintenance note and AI disclosure live here)
 js/map.js           Map, filters, and table

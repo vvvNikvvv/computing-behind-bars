@@ -31,19 +31,37 @@ init().catch(err => {
 async function init() {
   state.programs = (await loadCSV("data/programs.csv")).filter(p => p.latitude && p.longitude);
 
-  state.map = L.map("map", { scrollWheelZoom: false }).setView([39.5, -98.35], 4);
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-    maxZoom: 18,
+  // Base map: U.S. state outlines stored in the repo (no tile service or API key needed).
+  state.map = L.map("map", {
+    scrollWheelZoom: false,
+    zoomSnap: 0.25,
+    minZoom: 2,
+    maxZoom: 10,
+    maxBounds: [[5, -200], [75, -50]],
+    attributionControl: true,
+  });
+  state.map.attributionControl.setPrefix(false);
+  state.map.createPane("states").style.zIndex = 350;
+
+  const states = await (await fetch("data/us-states.geojson")).json();
+  L.geoJSON(states, {
+    pane: "states",
+    style: { color: "#ffffff", weight: 1.2, fillColor: "#e4e3de", fillOpacity: 1 },
+    attribution: 'State boundaries: U.S. Census Bureau, via <a href="https://github.com/topojson/us-atlas">us-atlas</a>',
+    onEachFeature: (f, layer) => {
+      layer.bindTooltip(f.properties.name, { sticky: true, direction: "top", className: "state-tip" });
+      layer.on("mouseover", () => layer.setStyle({ fillColor: "#d3d2cc" }));
+      layer.on("mouseout", () => layer.setStyle({ fillColor: "#e4e3de" }));
+    },
   }).addTo(state.map);
+
+  // Start on the contiguous U.S.; Alaska, Hawaii and Puerto Rico are a short pan away.
+  state.map.fitBounds([[24.4, -125], [49.5, -66.9]], { padding: [10, 10] });
 
   buildFilters();
   buildLegend();
   update();
 
-  // Fit the initial view to all markers so the whole country shows on any screen size
-  const pts = [...state.markers.values()].map(m => m.getLatLng());
-  if (pts.length) state.map.fitBounds(L.latLngBounds(pts), { padding: [30, 30], maxZoom: 6 });
 }
 
 // ---------- Filters ----------
