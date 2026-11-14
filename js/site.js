@@ -7,7 +7,7 @@ const SITE = {
   updatePlan: "[TODO: plan for updating this site after the course]",
   contactName: "[TODO: contact name]",
   contactEmail: "[TODO: contact email]",
-  repoUrl: "[TODO: GitHub repo URL]",
+  repoUrl: "https://github.com/vvvNikvvv/computing-behind-bars",
 };
 
 const PAGES = [
