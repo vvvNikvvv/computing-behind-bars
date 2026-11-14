@@ -4,7 +4,7 @@
 const SITE = {
   title: "Computing Behind Bars",
   lastUpdated: "November 10, 2026",          // TODO: update whenever data or content changes
-  updatePlan: "[TODO: say whether the team will keep updating this site after the course]",
+  updatePlan: "[TODO: plan for updating this site after the course]",
   contactName: "[TODO: contact name]",
   contactEmail: "[TODO: contact email]",
   repoUrl: "[TODO: GitHub repo URL]",
@@ -44,7 +44,7 @@ function renderChrome() {
     </section>
     <section>
       <h2>AI disclosure</h2>
-      <p>AI tools (Claude, by Anthropic; [TODO: list any others, e.g. ChatGPT]) were used to help
+      <p>AI tools (Claude, by Anthropic) were used to help
       write code and edit text for this site. All program data and sources were found and verified
       by the project team.</p>
     </section>
